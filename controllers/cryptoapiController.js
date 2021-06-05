@@ -45,7 +45,7 @@ getRateIntime :  async (req, res, next) => {
         if (query.time!=null) {           
             var unixTimestamp = Math.floor(new Date(query.time).getTime()/1000);
 
-            request('https://min-api.cryptocompare.com/data/pricehistorical?fsym=BTC&tsyms=USD&ts='+unixTimestamp, { json: true }, (err, res2, body) => {
+            request('https://min-api.cryptocompare.com/data/pricehistorical?fsym='+query.asset+'&tsyms=USD&ts='+unixTimestamp, { json: true }, (err, res2, body) => {
             
         if (err) { 
             res.status(errors.NotFound).send();    
